@@ -11,7 +11,7 @@
 }
 
 .btn{
-    @apply p-2 min-w-[75px] shadow-md bg-slate-200 rounded-md;
+    @apply p-2 min-w-[75px] shadow-md bg-white/5 rounded-md;
 }
 
 .btn_primary{
@@ -20,4 +20,8 @@
 
 .link{
     @apply hover:cursor-pointer hover:text-primary_detail;
+}
+
+.input{
+    @apply rounded-md bg-white/5 shadow-inner shadow-black/30 p-1 focus:outline-none;
 }
