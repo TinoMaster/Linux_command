@@ -11,12 +11,12 @@ export const Principal_Page = ({ scroll_pages_y }) => {
     <div className="container">
       {/* Modal add category */}
       {states.modal_add_category && (
-        <Modal_add_category addCategory={functions.funcAddCategory} />
+        <Modal_add_category addCategory={functions.funcModalCategory} />
       )}
       {/* Search bar */}
       <Principal_Search_Bar scroll_pages_y={scroll_pages_y} />
       {/* Button add category */}
-      <Button_add_category addCategory={functions.funcAddCategory} />
+      <Button_add_category addCategory={functions.funcModalCategory} />
       {/* Categories */}
       <List_categories />
     </div>
