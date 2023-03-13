@@ -6,8 +6,8 @@
     @apply w-screen h-screen p-2 overflow-hidden;
 }
 
-.container{
-    @apply flex flex-wrap justify-around items-center w-full my-6 px-5;
+.page-container{
+    @apply w-full py-6;
 }
 
 .btn{

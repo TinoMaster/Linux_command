@@ -4,7 +4,7 @@ import { BiSearch } from "react-icons/bi";
 export const Principal_Search_Bar = ({ scroll_pages_y }) => {
   return (
     <div
-      className={`flex justify-center container ${
+      className={`flex justify-center w-11/12 m-auto ${
         scroll_pages_y > 0 && "sticky top-0 z-10"
       } `}
     >
