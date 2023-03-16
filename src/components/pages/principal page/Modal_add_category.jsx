@@ -6,8 +6,8 @@ export const Modal_add_category = ({
   funcAddCategory,
 }) => {
   return (
-    <div className="flex justify-center items-center w-full h-full bg-black/20 z-30 absolute">
-      <div className="flex flex-col items-center justify-center w-10/12 h-[250px] bg-gradient-to-bl from-primary to-secondary rounded-md shadow-lg">
+    <div className="flex justify-center items-center w-full h-full rounded-2xl bg-black/10 z-30 absolute">
+      <div className="flex flex-col items-center justify-center w-10/12 h-[250px] max-w-[450px] bg-gradient-to-bl from-primary to-secondary rounded-md shadow-lg">
         <h3 className="text-primary_detail font-semibold text-xl pb-4">
           Agregue una categoria:
         </h3>

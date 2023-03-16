@@ -8,7 +8,7 @@ export const Container = () => {
   return (
     <div
       onScroll={(e) => setScroll_pages_y(e.target.scrollTop)}
-      className="w-full h-full overflow-auto pb-10"
+      className="w-full h-full overflow-auto pb-10 max-w-screen-xl m-auto relative"
     >
       <Routes>
         <Route
