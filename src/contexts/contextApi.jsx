@@ -9,6 +9,7 @@ const ApiProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
   const [category_errors, setCategory_errors] = useState({});
   const [category_loader, setCategory_loader] = useState(false);
+  const [render_categories, setRender_categories] = useState(false);
 
   useEffect(() => {
     setCategory_loader(true);
@@ -29,10 +30,15 @@ const ApiProvider = ({ children }) => {
           });
         }
       });
-  }, []);
+  }, [render_categories]);
 
   const funcAddNewCategory = (category) => {
     setCategories([...categories, category]);
+  };
+
+  const funcDeleteCategoryFromArray = (id) => {
+    setCategories(categories.filter((objeto) => objeto.id !== id));
+    setRender_categories((previous) => !previous);
   };
 
   const states_ApiContext = {
@@ -41,7 +47,10 @@ const ApiProvider = ({ children }) => {
     category_errors,
     category_loader,
   };
-  const functions_ApiContext = { funcAddNewCategory };
+  const functions_ApiContext = {
+    funcAddNewCategory,
+    funcDeleteCategoryFromArray,
+  };
 
   const data = { states_ApiContext, functions_ApiContext };
   return <ApiContext.Provider value={data}>{children}</ApiContext.Provider>;

@@ -6,11 +6,15 @@ import { httpHelper } from "../../../helpers/http-helper";
 export const usePrincipalPage = () => {
   /* ContextApi */
   const { functions_ApiContext } = useContext(ApiContext);
-  const { funcAddNewCategory } = functions_ApiContext;
+  const { funcAddNewCategory, funcDeleteCategoryFromArray } =
+    functions_ApiContext;
   /* states of button add */
   const [modal_add_category, setModal_add_category] = useState(false);
   const [new_category, setNew_category] = useState("");
   const [error_new_category, setError_new_category] = useState({});
+  /* states delete categories */
+  const [error_delete_category, setError_delete_category] = useState({});
+  const [success_delete_category, setSuccess_delete_category] = useState({});
 
   const funcModalCategory = (bolean) => {
     setModal_add_category(bolean);
@@ -67,11 +71,35 @@ export const usePrincipalPage = () => {
     }
   };
 
-  const states_usePrincipalPage = { modal_add_category, error_new_category };
+  const funcDeleteCategory = (id) => {
+    httpHelper()
+      .del(`${apiConfig.host}/${apiConfig.api}/${apiConfig.categories}/${id}`)
+      .then((res) => {
+        if (res.error) {
+          setError_delete_category(res);
+        } else if (res.success) {
+          setError_delete_category({});
+          funcDeleteCategoryFromArray(id);
+          setSuccess_delete_category(res);
+        } else
+          setError_delete_category({
+            error: true,
+            message: "Revise su conexion",
+          });
+      });
+  };
+
+  const states_usePrincipalPage = {
+    modal_add_category,
+    error_new_category,
+    error_new_category,
+    success_delete_category,
+  };
   const functions_usePrincipalPage = {
     funcModalCategory,
     funcAddCategory,
     handlerChangeAddCategory,
+    funcDeleteCategory,
   };
   return { states_usePrincipalPage, functions_usePrincipalPage };
 };

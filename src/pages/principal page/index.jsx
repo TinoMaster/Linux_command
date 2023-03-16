@@ -9,8 +9,12 @@ export const Principal_Page = ({ scroll_pages_y }) => {
   const { states_usePrincipalPage, functions_usePrincipalPage } =
     usePrincipalPage();
   const { modal_add_category } = states_usePrincipalPage;
-  const { funcModalCategory, funcAddCategory, handlerChangeAddCategory } =
-    functions_usePrincipalPage;
+  const {
+    funcModalCategory,
+    funcAddCategory,
+    handlerChangeAddCategory,
+    funcDeleteCategory,
+  } = functions_usePrincipalPage;
   return (
     <div className="page-container">
       {/* Modal add category */}
@@ -26,7 +30,7 @@ export const Principal_Page = ({ scroll_pages_y }) => {
       {/* Button add category */}
       <Button_add_category addCategory={funcModalCategory} />
       {/* Categories */}
-      <List_categories />
+      <List_categories funcDeleteCategory={funcDeleteCategory}/>
     </div>
   );
 };
